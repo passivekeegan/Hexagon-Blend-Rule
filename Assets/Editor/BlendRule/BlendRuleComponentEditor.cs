@@ -85,6 +85,7 @@ namespace BlendRule
 			_rulecomp.GenerateMesh();
 			_adj_config.tile = _rulecomp.tile;
 			_adj_config.shift = _rulecomp.shift;
+			EditorUtility.SetDirty(_rulecomp.gameObject);
 		}
 	}
 }

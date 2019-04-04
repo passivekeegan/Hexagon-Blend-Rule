@@ -118,6 +118,7 @@ namespace BlendRule
 
 		private void DrawRuleControl()
 		{
+			EditorGUI.BeginChangeCheck();
 			EditorGUILayout.BeginHorizontal();
 			EditorGUI.BeginDisabledGroup(_blend_rule.RuleExists(_config.raw_options));
 			if (GUILayout.Button("Add"))
@@ -141,6 +142,9 @@ namespace BlendRule
 			if (_rule_prop != null)
 			{
 				EditorGUILayout.PropertyField(_rule_prop);
+			}
+			if (EditorGUI.EndChangeCheck()) {
+				EditorUtility.SetDirty(_blend_rule);
 			}
 		}
 
